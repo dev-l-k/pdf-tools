@@ -18,7 +18,7 @@ function showFiles(){
         list.innerHTML += `
         <div class="file">
         <span>${i+1}.${file.name}</span>
-        <button onclick="removeFile(${i})">×</button>
+        <button onclick="removeFile(${i})" class="file">×</button>
         </div>
 
         `;
