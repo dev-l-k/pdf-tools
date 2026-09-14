@@ -126,7 +126,7 @@ footer{
 
     }
     .app{
-        padding: 15pxp;
+        padding: 15px;
     }
 }
 .disabled{
@@ -139,6 +139,7 @@ footer{
     background: #15181f;
     border: 1px solid #292d38;
     border-radius: 18px;
+    margin: 30px auto;
 }
 .upload{
     min-height: 210px;
