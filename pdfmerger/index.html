@@ -21,12 +21,12 @@
         </section>
         <section class="app">
             <label class="upload">
-                <input type="file" id="files" accept=".pdf" multiple>
+                <input type="file" id="pdfFiles" accept=".pdf" onchange="addFiles()" multiple>
                 <h3>Click here</h3>
                 <p>To select PDFs</p>
             </label>
             <div id="fileList"></div>
-            <button id="mergeBtn" class="btn" disabled>
+            <button id="mergeBtn" class="btn" onclick="mergePDFs()" disabled>
                 Merge PDFs
             </button>
             <p id="status" class="status"></p>
