@@ -203,3 +203,14 @@ footer{
     color:#9298a5;
     text-align:center;
 }
+.file button {
+  border: 0;
+  background: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.file button:hover {
+  color: #ff6b6b;
+}
