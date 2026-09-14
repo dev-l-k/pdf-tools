@@ -24,7 +24,7 @@
         <section>
             <h2>Projects</h2>
             <div class="tools">
-                <a href="apps/index.html" class="tool-card">
+                <a href="pdfmerger/index.html" class="tool-card">
                     <h3>PDF Merger</h3>
                     <p>Combine PDF files into one PDF. Your pdfs doesn't leaves your browser/device. You can upload multipe files at a time.</p>
 
@@ -35,5 +35,14 @@
     <footer>
         PDF Tools
     </footer>
+    <script>
+        function updateTime(){
+            const clock = document.getElementById('time');
+            const time = new Date().toLocaleTimeString();
+            clock.textContent = time;
+        }
+        updateTime();
+        setInterval(updateTime,1000);
+    </script>
 </body>
 </html>
