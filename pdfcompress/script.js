@@ -1,5 +1,6 @@
-let file = [];
+let file = null;
 let level = "medium";
+setLevel("medium");
 const settings = {
     low: [1.5,0.8],
     medium: [1.2,0.65],
@@ -41,12 +42,16 @@ async function compressPDF() {
         const [scale,quality] = settings[level];
 
         let output;
+        
 
         for (let i = 1;i<=pdf.numPages;i++){
             status.textContent=`Compressing page ${i} of ${pdf.numPages}...`;
             const page = await pdf.getPage(i);
             const view = page.getViewport({scale});
             const canvas = document.createElement("canvas");
+            canvas.width = 0;
+            canvas.height = 0;
+
             canvas.width = view.width;
             canvas.height = view.height;
             await page.render({
@@ -68,7 +73,7 @@ async function compressPDF() {
                 image,"JPEG",0,0,width,height
             );
         }
-        const result = output.output("arrayBuffer");
+        const result = output.output("arraybuffer");
         document.getElementById('newSize').textContent = size(result.byteLength);
         const saved = ((file.size - result.byteLength)/file.size)*100;
         document.getElementById("savedSize").textContent=saved>0? saved.toFixed(1) + "%": "Larger";
