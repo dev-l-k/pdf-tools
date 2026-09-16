@@ -42,7 +42,8 @@ async function makePDF() {
             }else{
                 pdf.addPage([width,height]);
             }
-            pdf.addImage(image,"JPEG",0,0,width,height);
+            const format = fileType = images[i].type.includes("png") ? "PNG" : "JPEG";
+            pdf.addImage(image, format, 0, 0, width, height);
 
 
         }
@@ -61,7 +62,7 @@ function loadImage(file){
         let image = new Image();
         let url = URL.createObjectURL(file);
         image.onload = () => {
-            URL.revokeObjectURL(url);
+            
             resolve(image);
         };
         image.onerror = reject;
