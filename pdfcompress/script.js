@@ -102,3 +102,10 @@ function size(bytes){
     }
     return (bytes/1048576).toFixed(2)+" MB";
 }
+function updateTime(){
+    const clock = document.getElementById('time');
+    const time = new Date().toLocaleTimeString();
+    clock.textContent = time;
+}
+updateTime();
+setInterval(updateTime,1000);
