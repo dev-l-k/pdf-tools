@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF</title>
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+    <header class="topbar">
+        <a href="../" class="logo">
+            PDF<span>Tools</span>
+        </a>
+        <div id="time">00:00:00</div>
+    </header>
+    <main class="body">
+        <section class="page-title">
+            <p class="tag">PDF Tool</p>
+            <h1>Images to PDF</h1>
+            <p class="sub">Combine images to a pdf</p>
+        </section>
+        <section class="app">
+            <label class="upload">
+                <input type="file" id="images" accept="image/*" multiple onchange="addImages()">
+                <h3>Click here </h3>
+                <p>To select images</p>
+            </label>
+            <div class="imageList"></div>
+            <button class="btn" id="makeBtn" onclick="makePDF()" disabled>Gen PDF</button>
+            <p class="status" id="status"></p>
+        </section>
+
+    </main>
+    <footer>
+        Image to PDF - PDF Tools
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
