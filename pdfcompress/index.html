@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Compressor</title>
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+    <header class="topbar">
+        <div class="logo">PDF<span>Tools</span></div>
+        <div id="time">00:00:00</div>
+    </header>
+    <main class="body">
+        <section class="page-title">
+            <p class="tag">PDF Tool</p>
+            <h1>PDF Compressor</h1>
+            <p class="sub">
+                Reduce the size of the pdf. By turning each page into compressed image.
+            </p>
+        </section>
+        <section class="app">
+            <label class="upload">
+                <input type="file" id="pdfFile" accept=".pdf" onchange="selectPDF()">
+                <h3>Click here</h3>
+                <p>To select PDF</p>
+            </label>
+            <div id="fileInfo"></div>
+            <div class="compression">
+                <h3>Compression Level</h3>
+                <div class="levels">
+                    <button class="level" id="low" onclick="setLevel('low')"><strong>Low</strong><small>Better quality</small></button>
+                    <button class="level" id="medium" onclick="setLevel('medium')"><strong>Medium</strong><small>Balanced</small></button>
+                    <button class="level" id="high" onclick="setLevel('high')"><strong>High</strong><small>Smaller size</small></button>
+
+                </div>
+            </div>
+            <div class="size" id="sizeBox" style="display:none;">
+                <div>
+            <small>Original</small>
+            <strong id="oldSize">-</strong>
+            </div>
+            <div>
+            <small>Compressed</small>
+            <strong id="newSize">-</strong>
+            </div>
+            <div>
+                <small>Reduced</small>
+                <strong id="savedSize">-</strong>
+            </div>
+            </div>
+            <button class="btn" id="compressBtn" onclick="compressPDF()" disabled>Compress PDF</button>
+            <p class="status" id="status"></p>
+        </section>
+    </main>
+    <footer>
+        PDF Compressor - PDF Tools
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
