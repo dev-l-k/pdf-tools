@@ -61,13 +61,16 @@ async function compressPDF() {
             const image = canvas.toDataURL("image/jpeg",quality);
             const width = view.width;
             const height = view.height;
-            if(!output){
+            const orientation = width > height ? "landscape" : "portrait";
+            if (!output) {
                 output = new jspdf.jsPDF({
-                    unit: "pt",
-                    format: [width,height]
+                    orientation:orientation,unit: "pt",format: [width, height]
+                    
                 });
-            }else{
-                output.addPage([width,height]);
+                
+            } else {
+                output.addPage([width,height], orientation);
+                
             }
             output.addImage(
                 image,"JPEG",0,0,width,height
