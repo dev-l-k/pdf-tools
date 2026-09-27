@@ -28,6 +28,11 @@ Reduce the size of pdf using rasterization. It has different levels low medium a
 ---
 Upload many images and pack them as a single pdf. Using jsPdf library.
 
+## Split PDF
+---
+Upload a pdf and split it into chunks. 
+
+
 ### Features 
 - You can upload multiple files at once.
 - None of your data never leaves your device.

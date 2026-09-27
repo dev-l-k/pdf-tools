@@ -63,7 +63,7 @@ $("split").onclick=async()=>{
 async function create(indexes,name){
     const p = await PDFDocument.create();
     const pages = await p.copyPages(pdf,indexes);
-    pages.fotEach(x=>p.addPage(x));
+    pages.forEach(x=>p.addPage(x));
     out.push({name,data:await p.save()});
 }
 
@@ -79,7 +79,7 @@ async function splitEach() {
 }
 async function splitRanges() {
     const n= pdf.getPageCount();
-    const r = $("ranges").value.split(",").map(x=>x.trim().filter(Boolean));
+    const r = $("ranges").value.split(",").map(x=>x.trim()).filter(Boolean);
     if(!r.length) throw Error("Enter page ranges");
     for(let i=0;i<r.length;i++){
     let [a,b]=r[i].split("-").map(Number);
@@ -114,9 +114,9 @@ function show(){
 }
 function download(i){
     const x=out[i],a=document.createElement("a");
-    a.href= URL.createObjectURL(new Blob([x.data],{type:"application/pdd"}));
+    a.href= URL.createObjectURL(new Blob([x.data],{type:"application/pdf"}));
     a.download = x.name;
-    a.click;
+    a.click();
     setTimeout(()=>URL.revokeObjectURL(a.href),1000);
 
 }
