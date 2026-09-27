@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Splitter</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+
+</head>
+<body>
+
+    <div class="app">
+        <h2>PDF Splitter</h2>
+        <div class="upload" id="upload">
+            <input type="file" id="input" accept="application/pdf">
+            <h3>Click here</h3>
+            <p>To select PDFs</p>
+        </div>
+        <div id="fileinfo"></div>
+        <div class="compression" id="options" style="display:none;">
+            <h3>Split Method</h3>
+            <div class="levels">
+                <button class="level active" id="each">
+                    <strong>Every Page</strong>
+                    <small>One PDF per page</small>
+                </button>
+                <button class="level" id="range">
+                    <strong>Page Ranges</strong>
+                    <small>Choose custom ranges</small>
+                </button>
+            </div>
+            <div id="rangeBox" style="display:none;margin-top:15px;">
+                <input id="ranges" placeholder="Example : 1-3 , 4-8 , 9" style="width:100%; padding:13px; background: #111319;border-radius: 9px; color:#fff;">
+            </div>
+            <button class="btn" id="split" disabled>Split PDF</button>
+            <div class="status" id="status"></div>
+            <div id="results"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
